@@ -4,22 +4,22 @@
   <title>Notices: Curiosity Club, Jabalpur Engineering College</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
-  <link rel="stylesheet" href="./css/bootstrap.css" media="screen">
-  <link rel="stylesheet" href="./css/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="./css/bootswatch.min.css">
+  <link rel="stylesheet" href="assets/css/bootstrap.css" media="screen">
+  <link rel="stylesheet" href="assets/css/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/bootswatch.min.css">
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
-<script src="./bower_components/html5shiv/dist/html5shiv.js"></script>
-<script src="./bower_components/respond/dest/respond.min.js"></script>
+<script src="assets/bower_components/html5shiv/dist/html5shiv.js"></script>
+<script src="assets/bower_components/respond/dest/respond.min.js"></script>
 <![endif]-->
 </head>
 <body>
-  <script src="./js/bsa.js"></script>
+  <script src="assets/js/bsa.js"></script>
 
   <div class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
-        <a href="./" class="navbar-brand">Curiosity</a>
+        <a href="assets/" class="navbar-brand">Curiosity</a>
         <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -37,7 +37,7 @@
             </ul>
           </li>
           <li>
-            <a href="./notice.php">Notices</a>
+            <a href="assets/notice.php">Notices</a>
           </li>
           <li>
             <a href="#">Workshops</a>
@@ -229,9 +229,9 @@
       </footer>
     </div>
 
-    <script src="./js/jquery-1.10.2.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
-    <script src="./js/bootswatch.js"></script>
+    <script src="assets/js/jquery-1.10.2.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootswatch.js"></script>
     <script type="text/javascript">
       !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
     </script>
