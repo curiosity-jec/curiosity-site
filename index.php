@@ -1,198 +1,205 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Curiosity Club: Jabalpur Engineering College</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="./css/bootstrap.css" media="screen">
-  <link rel="stylesheet" href="./css/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="./css/bootswatch.min.css">
-  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-<script src="./bower_components/html5shiv/dist/html5shiv.js"></script>
-<script src="./bower_components/respond/dest/respond.min.js"></script>
-<![endif]-->
-</head>
-<body>
-  <script src="./js/bsa.js"></script>
+<?php
 
-  <div class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <a href="./" class="navbar-brand">Curiosity</a>
-        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-      <div class="navbar-collapse collapse" id="navbar-main">
-        <ul class="nav navbar-nav">
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Home<span class="caret"></span></a>
-            <ul class="dropdown-menu" aria-labelledby="themes">
-              <li><a tabindex="-1" href="#">About</a></li>
-              <li><a tabindex="-1" href="#">Vision</a></li>
-              <li><a tabindex="-1" href="#">Workshops</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="./notice.php">Notices</a>
-          </li>
-          <li>
-            <a href="#">Workshops</a>
-          </li>
-        </ul>
+/*
+ *---------------------------------------------------------------
+ * APPLICATION ENVIRONMENT
+ *---------------------------------------------------------------
+ *
+ * You can load different configurations depending on your
+ * current environment. Setting the environment also influences
+ * things like logging and error reporting.
+ *
+ * This can be set to anything, but default usage is:
+ *
+ *     development
+ *     testing
+ *     production
+ *
+ * NOTE: If you change these, also change the error_reporting() code below
+ *
+ */
+	define('ENVIRONMENT', 'development');
+/*
+ *---------------------------------------------------------------
+ * ERROR REPORTING
+ *---------------------------------------------------------------
+ *
+ * Different environments will require different levels of error reporting.
+ * By default development will show errors but testing and live will hide them.
+ */
 
-        <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Member Login</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+if (defined('ENVIRONMENT'))
+{
+	switch (ENVIRONMENT)
+	{
+		case 'development':
+			error_reporting(E_ALL);
+		break;
+	
+		case 'testing':
+		case 'production':
+			error_reporting(0);
+		break;
 
-  <div class="splash">
-    <div class="container">
+		default:
+			exit('The application environment is not set correctly.');
+	}
+}
 
-      <div class="row">
-        <div class="col-lg-12">
-          <h1>Curiosity Club</h1>
-          <h2 style="color: #18bc9c">&#34;Learning Together makes a Difference&#34;</h2>
-          <div class="alert alert-info">"To keep pace with the industry standards and upcoming technologies abd contribute in the growth of student and college."</div>
-          <div id="social">
-            <span>
-              <a href="https://twitter.com/mayanktg" class="twitter-follow-button" data-show-count="false" data-show-screen-name="true">Follow @mayanktg</a>
-              <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://jec-jabalpur.org/curiosity/" data-via="mayanktg">Tweet</a>
-            </span>
-          </div>
-        </div>
-      </div>
+/*
+ *---------------------------------------------------------------
+ * SYSTEM FOLDER NAME
+ *---------------------------------------------------------------
+ *
+ * This variable must contain the name of your "system" folder.
+ * Include the path if the folder is not in the same  directory
+ * as this file.
+ *
+ */
+	$system_path = 'system';
 
-    </div>
-  </div>
+/*
+ *---------------------------------------------------------------
+ * APPLICATION FOLDER NAME
+ *---------------------------------------------------------------
+ *
+ * If you want this front controller to use a different "application"
+ * folder then the default one you can set its name here. The folder
+ * can also be renamed or relocated anywhere on your server.  If
+ * you do, use a full server path. For more info please see the user guide:
+ * http://codeigniter.com/user_guide/general/managing_apps.html
+ *
+ * NO TRAILING SLASH!
+ *
+ */
+	$application_folder = 'application';
 
-  <div class="section-preview">
-    <div class="container">
+/*
+ * --------------------------------------------------------------------
+ * DEFAULT CONTROLLER
+ * --------------------------------------------------------------------
+ *
+ * Normally you will set your default controller in the routes.php file.
+ * You can, however, force a custom routing by hard-coding a
+ * specific controller class/function here.  For most applications, you
+ * WILL NOT set your routing here, but it's an option for those
+ * special instances where you might want to override the standard
+ * routing in a specific front controller that shares a common CI installation.
+ *
+ * IMPORTANT:  If you set the routing here, NO OTHER controller will be
+ * callable. In essence, this preference limits your application to ONE
+ * specific controller.  Leave the function name blank if you need
+ * to call functions dynamically via the URI.
+ *
+ * Un-comment the $routing array below to use this feature
+ *
+ */
+	// The directory name, relative to the "controllers" folder.  Leave blank
+	// if your controller is not in a sub-folder within the "controllers" folder
+	// $routing['directory'] = '';
 
-      <div class="row">
-        <div class="col-lg-12">
-          <h1>About the club</h1>
-          <p class="lead">It is an initiative by the students of Jabalpur Engineering college to empower students with practical & industrial exposure. The club will coordinate with students, alumni , industry experts and college administration in order to make JEC a better platform to grow.</p>
-          <div class="row" align="center">
-            <iframe src="http://prezi.com/embed/w0_mgnb7ezfk/?bgcolor=ffffff&amp;lock_to_path=0&amp;autoplay=0&amp;autohide_ctrls=0&amp;features=undefined&amp;disabled_features=undefined" width="880" height="480" frameBorder="0"></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+	// The controller class file name.  Example:  Mycontroller
+	// $routing['controller'] = '';
 
-  <div class="section-tout">
-    <div class="container">
+	// The controller function you wish to be called.
+	// $routing['function']	= '';
 
-      <div class="row">
-        <h1 align="center">[ Our Motive ]</h1>
-        <div class="col-lg-4 col-sm-6">
-          <h3><i class="fa fa-file-o"></i>Teach what you can</h3>
-          <p>Every student gets an equal oppurtunity to share his knowledge with others interested in learning.</p>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <h3><i class="fa fa-file-o"></i>Student driven workshops</h3>
-          <p>Open lectures by students under the name of the club and supervision of faculty members.</p>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <h3><i class="fa fa-github"></i>Expert and alumni sessions</h3>
-          <p>We have alumni excelling in different fields who can guide us with their exposure and expertise.  </p>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <h3><i class="fa fa-bullhorn"></i>Constructive criticism</h3>
-          <p>Healthy discussions and arguments lead to a more responsible and knowledgable society. We help you by providing all round exposure. </p>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <h3><i class="fa fa-cloud"></i>Learn what you want</h3>
-          <p>If you want to learn something, take a step and bring it to our notice. And we will do our best to help you with it.</p>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <h3><i class="fa fa-cogs"></i>Discuss problems</h3>
-          <p>Even if you have some career related problems and need guidance, reach us.We are sure we will find the best solution together.</p>
-        </div>
-      </div>
 
-    </div>
-  </div>
+/*
+ * -------------------------------------------------------------------
+ *  CUSTOM CONFIG VALUES
+ * -------------------------------------------------------------------
+ *
+ * The $assign_to_config array below will be passed dynamically to the
+ * config class when initialized. This allows you to set custom config
+ * items or override any default config values found in the config.php file.
+ * This can be handy as it permits you to share one application between
+ * multiple front controller files, with each file containing different
+ * config values.
+ *
+ * Un-comment the $assign_to_config array below to use this feature
+ *
+ */
+	// $assign_to_config['name_of_config_item'] = 'value of config item';
 
-  <div class="section-preview">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <h1>Latest Workshops</h1>
-          <p class="lead">The latest upcoming and ongoing Curiosity-Workshops.</p>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <div class="preview">
-            <div class="image">
-              <a href="#"><img src="#" class="img-responsive" alt="workshop"></a>
-            </div>
-            <div class="options">
-              <h3>Workshop Title</h3>
-              <p>Lorem Ipsum </p>
-              <div class="btn-group"><a class="btn btn-info" href="">Preview</a></div>
-            </div>
-          </div>
-        </div>
 
-        <div class="col-lg-4 col-sm-6">
-          <div class="preview">
-            <div class="image">
-              <a href="#"><img src="#" class="img-responsive" alt="workshop"></a>
-            </div>
-            <div class="options">
-              <h3>Workshop Title</h3>
-              <p>Lorem Ipsum </p>
-              <div class="btn-group"><a class="btn btn-info" href="">Preview</a></div>
-            </div>
-          </div>
-        </div>
 
-        <div class="col-lg-4 col-sm-6">
-          <div class="preview">
-            <div class="image">
-              <a href="#"><img src="#" class="img-responsive" alt="workshop"></a>
-            </div>
-            <div class="options">
-              <h3>Workshop Title</h3>
-              <p>Lorem Ipsum </p>
-              <div class="btn-group"><a class="btn btn-info" href="">Preview</a></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+// --------------------------------------------------------------------
+// END OF USER CONFIGURABLE SETTINGS.  DO NOT EDIT BELOW THIS LINE
+// --------------------------------------------------------------------
 
-    <div class="container">
-      <footer>
-        <div class="row">
-          <div class="col-lg-12">            
-            <ul class="list-unstyled">
-              <li class="pull-right"><a href="#top">Back to top</a></li>
-              <li><a href="">Home</a></li>
-              <li><a href="">Notices</a></li>
-              <li><a href="">Worksops</a></li>
-              <li><a href="">Facebook</a></li>
-              <li><a href="">Twitter</a></li>
-            </ul>
-            <p>Managed by <a href="http://jec-jabalpur.org/curiosity/">The Curiosity Club</a>. Contact us at <a href="mailto:curiosity@jec-jabalpur.org">hello@thomaspark.me</a>.</p>
-            <p>Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License v2.0</a>.</p>
-            <p>Based on <a href="http://getbootstrap.com">Bootstrap</a>. Icons from <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a>. Web fonts from <a href="http://www.google.com/webfonts">Google</a>. Favicon by <a href="https://twitter.com/geraldhiller">Gerald Hiller</a>.</p>
-          </div>
-        </div>
-      </footer>
-    </div>
+/*
+ * ---------------------------------------------------------------
+ *  Resolve the system path for increased reliability
+ * ---------------------------------------------------------------
+ */
 
-    <script src="./js/jquery-1.10.2.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
-    <script src="./js/bootswatch.js"></script>
-    <script type="text/javascript">
-      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-    </script>
-  </body>
-  </html>
+	// Set the current directory correctly for CLI requests
+	if (defined('STDIN'))
+	{
+		chdir(dirname(__FILE__));
+	}
+
+	if (realpath($system_path) !== FALSE)
+	{
+		$system_path = realpath($system_path).'/';
+	}
+
+	// ensure there's a trailing slash
+	$system_path = rtrim($system_path, '/').'/';
+
+	// Is the system path correct?
+	if ( ! is_dir($system_path))
+	{
+		exit("Your system folder path does not appear to be set correctly. Please open the following file and correct this: ".pathinfo(__FILE__, PATHINFO_BASENAME));
+	}
+
+/*
+ * -------------------------------------------------------------------
+ *  Now that we know the path, set the main path constants
+ * -------------------------------------------------------------------
+ */
+	// The name of THIS file
+	define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
+
+	// The PHP file extension
+	// this global constant is deprecated.
+	define('EXT', '.php');
+
+	// Path to the system folder
+	define('BASEPATH', str_replace("\\", "/", $system_path));
+
+	// Path to the front controller (this file)
+	define('FCPATH', str_replace(SELF, '', __FILE__));
+
+	// Name of the "system folder"
+	define('SYSDIR', trim(strrchr(trim(BASEPATH, '/'), '/'), '/'));
+
+
+	// The path to the "application" folder
+	if (is_dir($application_folder))
+	{
+		define('APPPATH', $application_folder.'/');
+	}
+	else
+	{
+		if ( ! is_dir(BASEPATH.$application_folder.'/'))
+		{
+			exit("Your application folder path does not appear to be set correctly. Please open the following file and correct this: ".SELF);
+		}
+
+		define('APPPATH', BASEPATH.$application_folder.'/');
+	}
+
+/*
+ * --------------------------------------------------------------------
+ * LOAD THE BOOTSTRAP FILE
+ * --------------------------------------------------------------------
+ *
+ * And away we go...
+ *
+ */
+require_once BASEPATH.'core/CodeIgniter.php';
+
+/* End of file index.php */
+/* Location: ./index.php */
